@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block title %}{% if post %}Edit Post{% else %}Add Post{% endif %}{% endblock %}
+{% block content %}
+  <h1>{% if post %}Edit Post{% else %}Add Post{% endif %}</h1>
+  <form action="" method="post">
+    <p>Title: <input type="text" name="title" value="{% if post %}{{ post[1] }}{% endif %}"></p>
+    <p>Content: <textarea name="content">{% if post %}{{ post[2] }}{% endif %}</textarea></p>
+    <p><input type="submit" value="Save"></p>
+  </form>
+  <a href="{{ url_for('index') }}">Back to Home</a>
+{% endblock %}
